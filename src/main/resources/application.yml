@@ -1,0 +1,3 @@
+triangle:
+  storageServiceImpl: STORAGE_SERVICE_IN_MEMORY
+  #storageServiceImpl: STORAGE_SERVICE_DB

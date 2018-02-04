@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#49B69B">
+<img src="https://www.mprest.com/images/template/mprest-logo.png" alt="Smprest-logo" >
+<p><h3> Ohad Fisher </h3> </p>
+<p> Raffle 2 length of 2 edges:</p>
+<!--<p id="num"></p>-->
+<p id="json"></p>
+
+<button onclick="clearInterval(myVar)">Stop generate numbers</button>
+
+<script>
+var myVar = setInterval(myTimer ,1000);
+	function myTimer() {
+	var maxLength= 100;
+	var obj = new Object();
+    obj.edgeA =Math.floor(Math.random() * maxLength) + 1 ;
+    obj.edgeB =Math.floor(Math.random() * maxLength) + 1 ;
+
+    //document.getElementById("num").innerHTML = "("+obj.edgeA +" , "+ obj.edgeB+")";
+
+    var jsonString= JSON.stringify(obj);
+	document.getElementById("json").innerHTML = jsonString;
+
+
+//
+// Sending and receiving data in JSON format using POST method
+//
+var xhr = new XMLHttpRequest();
+var url = "http://localhost:8080/addTriangle";<!--https://hookb.in/E7Re41LM-->
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.send(jsonString);
+
+
+
+//
+
+
+
+
+}
+</script>
+
+</body>
+</html>
+
